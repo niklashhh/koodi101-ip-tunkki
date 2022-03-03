@@ -11,10 +11,12 @@ async fn tunkki(req: Request<Body>) -> Result<Response<Body>, hyper::Error> {
 }
 
 #[tokio::main]
-async fn main() {
+async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     let addr = SocketAddr::from(([127, 0, 0, 1], 9099));
 
     let make_service = make_service_fn(|_| async { Ok::<_, hyper::Error>(service_fn(tunkki)) });
 
-    Server::bind(&addr).serve(make_service).await.unwrap();
+    Server::bind(&addr).serve(make_service).await?;
+
+    Ok(())
 }
