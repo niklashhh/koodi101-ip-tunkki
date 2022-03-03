@@ -1,7 +1,13 @@
 * koodi101-ip-tunkki
 
-** usage
+** server usage
 
 #+BEGIN_SRC sh
-cargo run |jq
+cargo run
+#+END_SRC
+
+** client
+
+#+BEGIN_SRC sh
+curl "http://<ip>:9099" -d "$(echo; hostname; hostname -I; echo)"
 #+END_SRC
