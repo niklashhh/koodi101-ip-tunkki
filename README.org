@@ -1,7 +1,7 @@
 * koodi101-ip-tunkki
 
-  ** usage
+** usage
 
-  #+BEGIN_SRC sh
-  cargo run |jq
-  #+END_SRC
+#+BEGIN_SRC sh
+cargo run |jq
+#+END_SRC
